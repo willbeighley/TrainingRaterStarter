@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewContainerRef } from '@angular/core';
+import { ToastsManager } from 'ng2-toastr';
+
 
 @Component({
   selector: 'app-root',
@@ -8,6 +10,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   isNavbarCollapsed = false;
 
-  constructor() {
+  constructor(
+    private toastsManager: ToastsManager,
+    vcr: ViewContainerRef,
+  ) {
+    // sets the root view to be used with notifications
+    this.toastsManager.setRootViewContainerRef(vcr);
   }
 }
