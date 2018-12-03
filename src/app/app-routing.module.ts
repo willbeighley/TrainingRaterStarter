@@ -4,6 +4,7 @@ import { SessionsListComponent } from './sessions/sessions-list/sessions-list.co
 import { UsersComponent } from './users/users.component';
 import { NgModule } from '@angular/core';
 import { UsersDetailComponent } from './users/user-detail/user-detail.component';
+import { SessionsDetailComponent } from './sessions/session-detail/session-detail.component';
 
 
 const appRoutes: Routes = [
@@ -11,6 +12,7 @@ const appRoutes: Routes = [
   { path: 'sessions', component: SessionsListComponent },
   { path: 'users', component: UsersComponent},
   { path: 'users/:userId', component: UsersDetailComponent },
+  { path: 'sessions/:sessionId', component: SessionsDetailComponent },
 ];
 
 @NgModule({
