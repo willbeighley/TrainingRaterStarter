@@ -3,6 +3,7 @@ require('./config/config');
 const models = require('./models');
 require('./global_functions');
 const sessions = require('./controllers/SessionsController');
+const ratings = require('./controllers/RatingsController');
 const userController = require('./controllers/UsersController');
 const bodyParser = require('body-parser');
 const passport = require('passport');
@@ -67,4 +68,6 @@ app.post('/sessions', passport.authenticate('jwt', { session: false }), sessions
 app.put('/sessions', passport.authenticate('jwt', { session: false }), sessions.update);
 app.post('/users', userController.create);
 app.post('/login', userController.login);
+app.post('/ratings/:sessionId', passport.authenticate('jwt', { session: false }), ratings.create);
+app.put('/ratings/:ratingId', passport.authenticate('jwt', { session: false }), ratings.update);
 module.exports = app;
